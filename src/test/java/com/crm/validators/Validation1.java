@@ -1,5 +1,7 @@
 package com.crm.validators;
 
+import org.testng.Assert;
+
 import com.crm.services.AccountService1;
 import com.crm.services.AccountService2;
 import com.crm.services.AccountService3;
@@ -9,7 +11,6 @@ import com.crm.services.AccountService6;
 import com.crm.services.AccountService7;
 import com.crm.services.AccountService8;
 
-import junit.framework.Assert;
 
 public class Validation1 {
 	
