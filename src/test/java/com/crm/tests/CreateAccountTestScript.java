@@ -2,6 +2,7 @@ package com.crm.tests;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -23,9 +24,10 @@ import com.crm.data.LoginData;
 import com.crm.services.AccountService;
 import com.crm.services.HomeService;
 import com.crm.services.LoginService;
+import com.crm.util.BaseListener;
 import com.crm.validators.CreateAccountValidation;
 
-public class CreateAccountTestScript {
+public class CreateAccountTestScript extends BaseListener {
 	
 	LoginService loginService = null;
 	HomeService homeService = null;
@@ -35,18 +37,18 @@ public class CreateAccountTestScript {
 	CrmLoginData crmLoginData = null;
 	List<LoginData> appData =null;
 	
-	static ExtentTest elogger;
-	static ExtentReports extent = new ExtentReports();
+	//static ExtentTest elogger;
+	//static ExtentReports extent = new ExtentReports();
 
 	@BeforeClass
 	public void init() {
 		ExtentHtmlReporter reporter = new ExtentHtmlReporter("Reports//crm-test-result.html");
 		
-		extent.setSystemInfo("OS Name", "Windows");
-		extent.setSystemInfo("Enviroment", "QA");
-		reporter.config().setDocumentTitle("Crm automation test report for QA enviroment");
-		extent.attachReporter(reporter);
-		elogger = extent.createTest("Crm automation test cases");
+	//	extent.setSystemInfo("OS Name", "Windows");
+	//	extent.setSystemInfo("Enviroment", "QA");
+	//	reporter.config().setDocumentTitle("Crm automation test report for QA enviroment");
+	//	extent.attachReporter(reporter);
+	//	elogger = extent.createTest("Crm automation test cases");
 		
 		loginService = new LoginService();
 		homeService = new HomeService();
@@ -59,10 +61,10 @@ public class CreateAccountTestScript {
 		
 		BrowserDriver.getCurrentDriver().get(PropertyLoader.getUrl());
 		loginService.loginToApplication();
-		
+		test = extent.createTest("Functional Test Cases");
 	}
 	
-	@AfterClass
+/*	@AfterClass
 	public void tearDown() {
 		BrowserDriver.getCurrentDriver().quit();
 		extent.flush();
@@ -79,7 +81,7 @@ public class CreateAccountTestScript {
 			elogger.log(Status.SKIP, MarkupHelper.createLabel(result.getName() + "Test Case SKIPPED", ExtentColor.ORANGE));
 			elogger.skip(result.getThrowable());
 		}
-	}
+	}*/
 	
 	@Test(description = "it creates account with billing address", priority=0)
 	public void createAccountWithBillingAddress()throws InterruptedException {
@@ -93,8 +95,11 @@ public class CreateAccountTestScript {
 		accountService.CopyBillingAddress();
 		accountService.SaveTheDetails();
 		accountService.getBillingAdressFromWebPage();
+		
+		BrowserDriver.getCurrentDriver().findElement(By.id("nav-menu-dropdown")).click();
+		BrowserDriver.getCurrentDriver().findElement(By.linkText("Log Out")).click();
 	//	accountValidation.validateAddress(accountService);
-		elogger.pass("Test Case is Passed");
+	//	elogger.pass("Test Case is Passed");
 	//	accountValidation.validateAccountName(accountService);
 	//	accountValidation.validateWebsite(accountService);
 	//	accountValidation.validateEmail(accountService);

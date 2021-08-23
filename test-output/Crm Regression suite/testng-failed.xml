@@ -6,10 +6,21 @@
   </listeners>
   <test thread-count="5" name="Crm Create Account Test(failed)">
     <classes>
+      <class name="com.crm.tests.TestScript10">
+        <methods>
+          <include name="createAccountWithBillingAddress"/>
+          <include name="init"/>
+          <include name="txtDeleteTheDetails"/>
+        </methods>
+      </class> <!-- com.crm.tests.TestScript10 -->
       <class name="com.crm.tests.CreateAccountTestScript">
         <methods>
           <include name="init"/>
-          <include name="createAccountWithBillingAddress"/>
+          <include name="setUp"/>
+          <include name="editAccount"/>
+          <include name="getResult"/>
+          <include name="txtDeleteTheDetails"/>
+          <include name="tearDown"/>
         </methods>
       </class> <!-- com.crm.tests.CreateAccountTestScript -->
     </classes>
