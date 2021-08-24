@@ -106,7 +106,7 @@ public class CreateAccountTestScript extends BaseListener {
 	//	accountValidation.validateAddress(accountService);
 	}
 	
-	@Test(description = "it edits the account", priority=1)
+	/*@Test(description = "it edits the account", priority=1)
 		public void editAccount() throws InterruptedException {
 		accountService.EditTheDetails();
 		accountService.EditAccountName();
@@ -117,6 +117,6 @@ public class CreateAccountTestScript extends BaseListener {
 	@Test(description = "it delete the account", priority=2)
 	    public void txtDeleteTheDetails() {
 			accountService.DeleteAccount();
-	}
+	}*/
 
 }
