@@ -14,7 +14,7 @@ public class HomeService {
 	public HomeService clickOnAccounts() throws InterruptedException {
 		homeContainerPage.getHomePageAccountsTab().click();
 		log.info("Account page opened");
-		Thread.sleep(6000);
+		Thread.sleep(10000);
 	
 		return this;
 	}
