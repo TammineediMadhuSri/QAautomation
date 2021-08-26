@@ -2,7 +2,7 @@ package com.crm.validators;
 
 import com.crm.services.AccountService;
 
-import junit.framework.Assert;
+import org.testng.Assert;
 
 public class CreateAccountValidation {
 
