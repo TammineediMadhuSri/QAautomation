@@ -3,18 +3,12 @@ package com.crm.tests;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.testng.ITestResult;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 //import org.testng.annotations.Test;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.markuputils.ExtentColor;
-import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.crm.config.BrowserDriver;
 import com.crm.config.PropertyLoader;
@@ -37,18 +31,18 @@ public class CreateAccountTestScript extends BaseListener {
 	CrmLoginData crmLoginData = null;
 	List<LoginData> appData =null;
 	
-	//static ExtentTest elogger;
-	//static ExtentReports extent = new ExtentReports();
+	static ExtentTest elogger;
+	static ExtentReports extent = new ExtentReports();
 
 	@BeforeClass
 	public void init() {
 		ExtentHtmlReporter reporter = new ExtentHtmlReporter("Reports//crm-test-result.html");
 		
-	//	extent.setSystemInfo("OS Name", "Windows");
-	//	extent.setSystemInfo("Enviroment", "QA");
-	//	reporter.config().setDocumentTitle("Crm automation test report for QA enviroment");
-	//	extent.attachReporter(reporter);
-	//	elogger = extent.createTest("Crm automation test cases");
+		extent.setSystemInfo("OS Name", "Windows");
+		extent.setSystemInfo("Enviroment", "QA");
+		reporter.config().setDocumentTitle("Crm automation test report for QA enviroment");
+		extent.attachReporter(reporter);
+		elogger = extent.createTest("Crm automation test cases");
 		
 		loginService = new LoginService();
 		homeService = new HomeService();
