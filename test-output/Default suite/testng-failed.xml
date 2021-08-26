@@ -7,9 +7,8 @@
         <methods>
           <include name="init"/>
           <include name="setUp"/>
-          <include name="editAccount"/>
           <include name="getResult"/>
-          <include name="txtDeleteTheDetails"/>
+          <include name="createAccountWithBillingAddress"/>
           <include name="tearDown"/>
         </methods>
       </class> <!-- com.crm.tests.CreateAccountTestScript -->

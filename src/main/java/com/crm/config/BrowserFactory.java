@@ -4,6 +4,7 @@ import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 
 public class BrowserFactory {
 	
@@ -18,6 +19,10 @@ public class BrowserFactory {
 			ChromeOptions options = new ChromeOptions();
 			options.setAcceptInsecureCerts(true);
 			driver = new ChromeDriver();
+			
+		case "edge":
+			System.setProperty("webdriver.edge.driver", "C:\\Edge drivers\\msedgedriver.exe");
+			driver = new EdgeDriver();
 		}
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
