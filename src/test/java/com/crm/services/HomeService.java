@@ -11,9 +11,11 @@ public class HomeService {
 	public static HomeContainerPage homeContainerPage;
 	private static Logger log = Logger.getLogger(HomeService.class);
 	
-	public HomeService clickOnAccounts() {
+	public HomeService clickOnAccounts() throws InterruptedException {
 		homeContainerPage.getHomePageAccountsTab().click();
 		log.info("Account page opened");
+		Thread.sleep(6000);
+	
 		return this;
 	}
 	/*public void clickOnDropDown() {
